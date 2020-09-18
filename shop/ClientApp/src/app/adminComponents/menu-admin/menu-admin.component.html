@@ -1,0 +1,52 @@
+
+    <div class="p-4 pt-5">
+      <a href="#" class="img logo rounded-circle mb-5" [style.background-image]="'url(' + imageUser + ')'"></a>
+      <ul class="list-unstyled components mb-5">
+        <li [routerLinkActive]="'active'">
+          <a [routerLink]="['/Dashboard']">Dashboard</a>
+        </li>
+
+        <li>
+          <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Categories</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu3">
+            <li [routerLinkActive]="'active'">
+              <a [routerLink]="['/Categories']">Categories List</a>
+            </li>
+            <li  [routerLinkActive]="'active'">
+              <a [routerLink]="['/NewCategory']">New Category</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Products</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li [routerLinkActive]="'active'">
+              <a [routerLink]="['/Products']">Products List</a>
+            </li>
+            <li  [routerLinkActive]="'active'">
+              <a [routerLink]="['/NewProduct']">New Products</a>
+            </li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="'active'">
+          <a [routerLink]="['/CustomerList']">Customer List</a>
+        </li>
+        <li>
+          <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Sales</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu2">
+            <li [routerLinkActive]="'active'">
+              <a [routerLink]="['/Sales']">Sales List</a>
+            </li>
+            <li  [routerLinkActive]="'active'">
+              <a [routerLink]="['/NewSales']">New Sales</a>
+            </li>
+          </ul>
+        </li>
+        <li [routerLinkActive]="'active'">
+          <a [routerLink]="['/Settings']">Settings</a>
+        </li>
+        <li>
+          <a href="#" (click)="logout($event)">Logout</a>
+        </li>
+      </ul>
+    </div>

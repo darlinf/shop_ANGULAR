@@ -1,0 +1,30 @@
+<div class="card" style="width: 100%; margin-top: 1rem;">
+    <div class="flex-container">
+        <h6 class="card-subtitle  text-muted " style="margin-top: 10px; margin-left: 20px;">Customer List</h6>
+    </div>
+    <div style="margin:20px;">
+    <table class="table table-striped" >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers; let index = index">
+            <th scope="row">{{index + 1}}</th>
+            <td>{{customer.name}}</td>
+            <td>{{customer.email}}</td>
+            <td>{{customer.phone | isNull}}</td>
+            <td>
+                <button class="btn btn-outline-secondary m-1"><i class="fa fa-edit font-awesome-style"></i></button>
+                <button class="btn btn-outline-danger"><i class="fa fa-trash font-awesome-style"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

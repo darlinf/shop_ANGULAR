@@ -1,0 +1,49 @@
+<div class="row" *ngIf="dashboard">
+    <div class="card col mr-3" style="width: 18rem;">
+      <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted text-right">Total Orders</h6>
+        <h5 class="card-title text-right">{{dashboard.totalOrder}}</h5>
+        <p class="card-text">Total sales</p>
+      </div>
+    </div>
+    <div class="card col  mr-3" style="width: 18rem;">
+      <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted text-right">Paid Orders</h6>
+        <h5 class="card-title text-right">{{dashboard.paidOrders}}</h5>
+        <p class="card-text">Total customer</p>
+      </div>
+    </div>
+     <div class="card col  mr-3" style="width: 18rem;">
+      <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted text-right">Due Orders</h6>
+        <h5 class="card-title text-right">{{dashboard.dueOrders}}</h5>
+        <p class="card-text">Total products</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card" style="width: 100%; margin-top: 1rem;">
+      <h6 class="card-subtitle  text-muted " style="margin-top: 10px; margin-left: 20px;">Last 5 Orders</h6>
+      <div style="margin:20px;">
+      <table class="table table-striped" >
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Date</th>
+              <th scope="col">Total</th>
+              <th scope="col">Payment status</th>
+              <th scope="col">Payment Methos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sale of sales; let index = index">
+              <th scope="row">{{index + 1}}</th>
+              <td>{{sale.date}}</td>
+              <td>{{sale.totalAmount}}</td>
+              <td>{{sale.paymentStatus}}</td>
+              <td>{{sale.paymentMethos}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>

@@ -1,0 +1,26 @@
+<app-explore-store (search)="handlerSearch($event)"></app-explore-store>
+<div class="category" *ngFor="let category of categoryAndProduct">
+  <h3>{{category.nombre | charFirstUppercase}}</h3>
+  <div class="row row-cols-1 row-cols-md-3">
+
+    <div class="col mb-4" *ngFor="let product of category.products | search:filterValue">
+      <div class="card cardContainer">
+        <div class="containerImage"
+        [style.background-image]="'url(' + product.image + ')'" class="containerImage"
+          >
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-size">{{product.name | stringReduce : 15}}</h5>
+          <div>
+            <label class="text-warning font-weight-bolder  text-custom">{{product.price}}</label><label>$</label>
+            <button class="btn btn-warning text-white float-right"
+            (click)="addToCart(product, true)" [disabled]="product.addToCart" >Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<app-paginator></app-paginator>

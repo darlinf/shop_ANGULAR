@@ -1,0 +1,45 @@
+<div class="card " style=" width: 100%; margin-top: 1rem;">
+    <div class="flex-container">
+        <h6 class="card-subtitle  text-muted " style="margin-top: 10px; margin-left: 20px;">Sales List</h6> 
+    </div>
+    <div style="margin:20px;">
+    <table class="table table-striped" >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Total</th>
+            <th scope="col">Payment status</th>
+            <th scope="col">Payment method</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <ng-container *ngIf="sales">
+        <tbody>
+          <tr *ngFor="let sale of sales | paginate : page_size : page_number; let index = index">
+            <th scope="row">{{index + 1}}</th>
+            <td>{{sale.date}}</td>
+            <td>{{sale.name}}</td>
+            <td>{{sale.totalAmount}}</td>
+            <td>{{sale.paymentStatus}}</td>
+            <td>{{sale.paymentMethos}}</td>
+            <td>
+                <button class="btn btn-outline-secondary m-1"><i class="fa fa-edit font-awesome-style"></i></button>
+                <button class="btn btn-outline-danger"><i class="fa fa-trash font-awesome-style"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </ng-container>
+      </table>
+    </div>
+  </div>
+
+<ng-container  *ngIf="sales">
+  <mat-paginator 
+    [length]="sales.length"
+    [pageSize]="page_size"
+    [pageSizeOptions]="[3, 5, 10, 25, 100]"
+    (page)="handlerPage($event)">
+  </mat-paginator>
+</ng-container>

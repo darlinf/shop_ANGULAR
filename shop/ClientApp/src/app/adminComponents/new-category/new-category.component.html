@@ -1,0 +1,25 @@
+<div class="card" style="width: 100%; margin-top: 1rem;">
+    <div class="flex-container">
+        <h6 class="card-subtitle  text-muted " style="margin-top: 10px; margin-left: 20px;">New product</h6>
+    </div>
+    <div style="margin:auto; width: 400px;">
+      <form (ngSubmit)="newCategory(rForm.value)" [formGroup]="rForm">
+        <div class="form-group">
+          <label for="">Name</label>
+          <input type="text" class="form-control" formControlName="nombre">
+        </div>
+        <div class="form-group">
+          <label for="">Status</label>
+          <input type="text" class="form-control" formControlName="status">
+        </div>
+        <div class="form-group">
+          <label for="">Image</label>
+          <input type="text" class="form-control" formControlName="image">
+        </div>
+        
+        <div class="form-group">
+          <button class="btn btn-success">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>

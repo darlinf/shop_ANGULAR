@@ -1,0 +1,41 @@
+<div class="col mb-4">
+    <div class="card">
+    <h6 class="card-subtitle  text-muted " style="margin-top: 10px; margin-left: 20px;">Setting</h6>
+        <div class="card-body" *ngIf="user">
+            <form action="" [formGroup]="rForm" (ngSubmit)="update(rForm.value)">
+                <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="text" [value]="user.name" formControlName="name" class="form-control" >
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <label for="">Email</label>
+                        <input type="email"  [value]="user.email"  formControlName="email"  class="form-control">
+                    </div>
+                    <div class="col form-group">
+                        <label for="">Phone</label>
+                        <input type="phone"  [value]="user.phone" formControlName="phone"  class="form-control">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <label for="">Currency</label>
+                        <input type="number" [value]="user.currency" formControlName="currency"  class="form-control">
+                    </div>
+                    <div class="col form-group">
+                        <label for="">Website</label>
+                        <input type="text" [value]="user.website"formControlName="website"  class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Address</label>
+                    <input type="text"  [value]="user.addres" formControlName="addres" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success">Submit</button>
+                    <button class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

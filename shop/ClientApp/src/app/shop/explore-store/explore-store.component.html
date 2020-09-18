@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col">
+        <input type="text" name="" id="" spellcheck="false" autocomplete="none" placeholder="Seach" [formControl]="search" class="form-control" >
+   
+    </div>
+    <div class="col">
+        <select name="" id="" class="form-control" (change)="firterCategory($event.target.value)">
+            <option value="">Categories</option>
+            <option [value]="category.id" *ngFor="let category of categories">{{ category.nombre }}</option>
+        </select>
+    </div>
+</div>
+

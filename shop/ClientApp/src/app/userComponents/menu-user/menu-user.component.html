@@ -1,0 +1,18 @@
+<div class="p-4 pt-5">
+    <a href="#" class="img logo rounded-circle mb-5" [style.background-image]="'url(' + imageUser + ')'" ></a>
+    <ul class="list-unstyled components mb-5">
+      <li  [routerLinkActive]="'active'">
+        <a [routerLink]="['/DashboardUser']">Dashboard</a>
+      </li>
+      <li  [routerLinkActive]="'active'">
+        <a [routerLink]="['/Order']">Order</a>
+      </li>
+      <li  [routerLinkActive]="'active'">
+        <a [routerLink]="['/OrderList']">Order List</a>
+      </li>
+      <li>
+        <a [routerLink]="['/']" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+
+  </div>

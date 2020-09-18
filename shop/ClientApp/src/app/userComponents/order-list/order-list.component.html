@@ -1,0 +1,32 @@
+<div class="card" style="width: 100%; margin-top: 1rem;">
+    <div class="flex-container">
+        <h6 class="card-subtitle  text-muted " style="margin-top: 10px; margin-left: 20px;">Orders List</h6>
+    </div>
+    <div style="margin:20px;">
+    <table class="table table-striped" >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">date</th>
+            <th scope="col">total</th>
+            <th scope="col">payment status</th>
+            <th scope="col">payment method</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <th scope="row">{{product.id}}</th>
+            <td><div [style.background-image]="'url(' + product.image + ')'" class="imageContainer"></div></td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.stock }}</td>
+            <td>
+                <button class="btn btn-outline-secondary m-1"><i class="fa fa-edit font-awesome-style"></i></button>
+                <button class="btn btn-outline-danger" (click)="deleteProduct(product.id)"><i class="fa fa-trash font-awesome-style"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

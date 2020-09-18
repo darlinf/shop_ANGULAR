@@ -1,0 +1,111 @@
+<div class="flex-container">
+    <div class="card">
+        <div class=" new-sales">
+            <app-store></app-store>
+        </div>
+        
+    </div>
+    <div>
+        <div class="col mb-4">
+            <div class="card">
+              <div class="card-body">
+                <form action="">
+                    <div class="form-group">
+                        <label for="">Order Date</label>
+                        <input type="text" [value]="orderDate | date: 'MMM d, y, h:mm a'" class="form-control" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Customer</label>
+                        <select name="" class="form-control" (change)="userId = $event.target.value">
+                            <option value="">select customer</option>
+                            <option *ngFor="let customer of customers" [value]="customer.id">{{customer.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th scope="col">name</th>
+                                <th scope="col">price</th>
+                                <th scope="col">quantity</th>
+                                <th scope="col">total</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let product of productInCart;let index = index">
+                                <th>{{product.name | stringReduce:6}}</th>
+                                <td>{{product.price}}</td>
+                                <td>
+                                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-outline-secondary"
+                                        (click)="quantity(product,'max')" >+</button>
+                                        <button type="button" class="btn btn-secondary" disabled>{{product.quantity}}</button>
+                                        <button type="button" class="btn btn-outline-secondary"
+                                        (click)="quantity(product, 'minus', index)">-</button>
+                                    </div>
+                                </td>
+                                <td>{{product.total}}</td>
+                                <td>
+                                    <a href="#" class="text-danger font-weight-bold" (click)="remove(index, product, $event)">X</a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div>
+                              <table class="table">
+                                <tr>
+                                    <td>
+                                        <button class="btn btn-danger" (click)="clearCart()">Clear Cart</button>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>sub total</td>
+                                    <td>{{totals}}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>discount(%):</td>
+                                    <td>
+                                        <input type="number" (keyup)="discount($event.target.value)" placeholder="0" class="form-control">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select name=""class="form-control" (change)="paymentMethos = $event.target.value">
+                                            <option value="">PayMethod</option>
+                                            <option value="cart" >Cart</option>
+                                            <option value="cash" >Cash</option>
+                                        </select>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>total:</td>
+                                    <td>{{totalTotal}}</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select name=""class="form-control" (change)="paymentStatus = $event.target.value">
+                                            <option value="">PayStatus</option>
+                                            <option value="paid">paid</option>
+                                            <option value="due">due</option>
+                                        </select>
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <button class="btn btn-primary" (click)="generateInvoices()">Submit</button>
+                                    </td>
+                                </tr>
+                              </table>
+                          </div>
+                    </div>
+                </form>
+              </div>
+            </div>
+          </div>
+      
+    </div>
+</div>

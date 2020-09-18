@@ -1,0 +1,55 @@
+
+<!---
+<div class="container">
+	<div class="login-container">
+            <div id="output"></div>
+            <div class="avatar" [style.background-image]="'url(' + imageUser + ')'"></div>
+            <div class="form-box">
+                <form action="" method="" [formGroup]="rForm" (ngSubmit)="login(rForm.value)">
+                    <input name="email" type="text" placeholder="username" (blur)="getImageUser(rForm.value)" formControlName="email">
+                    <input type="password" placeholder="password" formControlName="password">
+                    <button class="btn btn-info btn-block login" type="submit" [disabled]="!rForm.valid">Login</button>
+                </form>
+            </div>
+        </div>
+</div>
+
+-->
+
+<div class="col-md-6 mt-5" style="width: 300px; margin: auto;">
+    <!--<div class="alert alert-info">
+        Username: test<br />
+        Password: test
+    </div>-->
+    <div class="card">
+        <h4 class="card-header">Login</h4>
+
+        <div class="card-header">
+            <div class="avatar" [style.background-image]="'url(' + imageUser + ')'"></div>
+        </div>
+
+        <div class="card-body">
+            <form [formGroup]="rForm" (ngSubmit)="login(rForm.value)">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" formControlName="email" (blur)="getImageUser(rForm.value)" class="form-control" [ngClass]="{ 'is-invalid': submitted && rForm.get('email').errors }" />
+                    <div *ngIf="submitted && rForm.get('email').errors" class="invalid-feedback">
+                        <div *ngIf="rForm.get('email').errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && rForm.get('password').errors }" />
+                    <div *ngIf="submitted && rForm.get('password').errors" class="invalid-feedback">
+                        <div *ngIf="rForm.get('password').errors.required">Password is required</div>
+                    </div>
+                </div>
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Login
+                </button>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+            </form>
+        </div>
+    </div>
+</div>

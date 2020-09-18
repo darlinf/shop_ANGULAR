@@ -1,0 +1,35 @@
+<div class="card" style="width: 100%; margin-top: 1rem;">
+  <div class="flex-container">
+      <h6 class="card-subtitle  text-muted " style="margin-top: 10px; margin-left: 20px;">New product</h6>
+  </div>
+  <div style="margin:auto; width: 400px;">
+    <form (ngSubmit)="newProduct(rForm.value)" [formGroup]="rForm">
+      <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="">Price</label>
+        <input type="number" class="form-control" formControlName="price">
+      </div>
+      <div class="form-group">
+        <label for="">Image</label>
+        <input type="text" class="form-control" formControlName="image">
+      </div>
+      <div class="form-group">
+        <label for="">Stock</label>
+        <input type="number" class="form-control" formControlName="stock">
+      </div>
+      <div class="form-group">
+        <label for="">Category</label>
+        <select name=""class="form-control" formControlName="categoryId">
+          <option value="">--select--</option>
+          <option [value]="category.id" *ngFor="let category of categories">{{category.nombre}}</option>
+      </select>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

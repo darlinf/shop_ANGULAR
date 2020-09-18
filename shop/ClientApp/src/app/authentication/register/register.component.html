@@ -1,0 +1,50 @@
+
+<div style="margin: auto; width: 50%;">
+    <h2 class="text-center">Register</h2>
+    <form [formGroup]="rForm" (ngSubmit)="registerForm(rForm.value)">
+        <div class="row" >
+            <div class="form-group">
+                <label for="">Email</label>
+                <input type="text" class="form-control" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" class="form-control" formControlName="name">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" class="form-control" formControlName="password">
+            </div>
+            <div class="form-group">
+                <label for="">Confir password</label>
+                <input type="password" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="">Image</label>
+                <input type="text" class="form-control" formControlName="image">
+            </div>
+            <div class="form-group">
+                <label for="">Currency</label>
+                <input type="text" class="form-control" formControlName="currency">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="">Phone</label>
+                <input type="number" class="form-control" formControlName="phone">
+            </div>
+            <div class="form-group">
+                <label for="">Addres</label>
+                <input type="text" class="form-control" formControlName="addres">
+            </div>
+        </div>
+        <div class="form-group">
+           <button class="btn btn-success form-control" [disabled]="!rForm.valid" >Submit</button> 
+        </div>
+        
+    </form>
+</div>

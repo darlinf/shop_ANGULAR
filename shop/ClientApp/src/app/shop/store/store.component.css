@@ -1,0 +1,20 @@
+.cardContainer{
+    height: 300px;
+    width: 210px;
+}
+
+.containerImage {
+    height: 150px; 
+    width: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+.text-custom{
+    font-size: 20px;
+}
+.text-size{
+    font-size: 15px;     
+}
+.category{
+    margin-top: 30px;
+}
